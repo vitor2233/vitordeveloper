@@ -1,0 +1,68 @@
+.profile {
+    height: 13.25;
+    background: var(--blue-800);
+    border-radius: 8px;
+    display: flex;
+    flex-direction: row;
+    margin-top: -9rem;
+    padding-right: 1.5rem;
+}
+
+.avatar {
+    width: 13rem;
+    height: 13rem;
+    border-radius: 24px;
+    padding: 1rem;
+}
+
+.profileInformation div:first-child {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1.25rem 0 1rem 0;
+}
+
+.profileInformation div:last-child {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 2rem 1rem;
+}
+
+.buttons a {
+    margin-left: 2rem;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    color: var(--gray-400);
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.iconProfile {
+    margin-right: 0.5rem;
+}
+
+.githubRedirect {
+    display: flex;
+    flex-direction: row;
+    align-items: end;
+    color: var(--blue-600);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.githubRedirectIcon {
+    margin-left: 0.5rem;
+}
+
+.firstName {
+    color: var(--gray-400);
+}
+
+.description {
+    color: var(--gray-400);
+    line-height: 1.4;
+}
