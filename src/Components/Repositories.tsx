@@ -1,8 +1,9 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import styles from './Repositories.module.css'
+import { Project, ProjectCard } from './ProjectCard';
 
 export function Repositories() {
-    //const [projectsUrl, setProjectsUrl] = useState('https://api.github.com/search/issues?q=repo:vitor2233/blog-projects');
+    const [projects, setProjects] = useState([] as Project[]);
     useEffect(() => {
         fetch('https://api.github.com/search/issues?q=repo:vitor2233/blog-projects', {
             method: "GET",
@@ -13,7 +14,16 @@ export function Repositories() {
         })
             .then((response) => response.json())
             .then((data) => {
-                console.log(data); // Log the extracted JSON data
+                const projectToAdd = []
+                for (let i = 0; i < data.items.length; i++) {
+                    const project = data.items[i];
+                    projectToAdd.push({
+                        title: project.title,
+                        body: project.body,
+                        updatedAt: project.updated_at
+                    })
+                }
+                setProjects(projectToAdd);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
@@ -32,28 +42,15 @@ export function Repositories() {
                 </form>
             </div>
             <div className={styles.cards}>
-                <div className={styles.cardRepo}>
-                    <div className={styles.cardHeader}>
-                        <p>Parafuso Inteligente</p>
-                        <small>Há 1 dia</small>
-                    </div>
-                    <div className={styles.cardBody}>
-                        <p>
-                            Programming languages all have built-in data structures, but these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These
-                        </p>
-                    </div>
-                </div>
-                <div className={styles.cardRepo}>
-                    <div className={styles.cardHeader}>
-                        <p>Stefany Sthetics</p>
-                        <small>Há 1 dia</small>
-                    </div>
-                    <div className={styles.cardBody}>
-                        <p>
-                            Programming languages all have built-in data structures, but theseProgramming languages all have built-in data structures, but theseProgramming languages all have built-in data structures, but theseProgramming languages all have built-in data structures, buProgramming languages all have built-in data structures, but theseProgramming languages all have built-in data structures, buProgramming languages all have built-in data structures, but theseProgramming languages all have built-in data structures, buProgramming languages all have built-in data structures, but theseProgramming languages all have built-in data structures, but theseProgramming languages all have built-in data structures, but theset theset theset these often differ from one language to another. This article attempts to list the built-in data structures available in JavaScript and what properties they have. These
-                        </p>
-                    </div>
-                </div>
+                {projects.map(project => {
+                    return (
+                        <ProjectCard
+                            title={project.title}
+                            body={project.body}
+                            updatedAt={project.updatedAt}
+                        />
+                    );
+                })}
             </div>
         </div>
     );
