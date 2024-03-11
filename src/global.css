@@ -31,6 +31,8 @@ body {
 
 body,
 input,
+pre,
+p,
 textarea,
 button {
     font-family: 'Roboto', sans-serif;

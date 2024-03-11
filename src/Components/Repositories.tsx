@@ -4,6 +4,7 @@ import { Project, ProjectCard } from './ProjectCard';
 
 export function Repositories() {
     const [projects, setProjects] = useState([] as Project[]);
+    const [quantityOfProjects, setQuantityOfProjects] = useState(0);
     useEffect(() => {
         fetch('https://api.github.com/search/issues?q=repo:vitor2233/blog-projects', {
             method: "GET",
@@ -24,8 +25,8 @@ export function Repositories() {
                         issueNumber: project.number
                     })
                 }
+                setQuantityOfProjects(data.items.length);
                 setProjects(projectToAdd);
-                console.log(data)
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
@@ -38,7 +39,7 @@ export function Repositories() {
                 <form>
                     <div className={styles.searchText}>
                         <p>Publicações</p>
-                        <small>6 publicações</small>
+                        <small>{quantityOfProjects} publicações</small>
                     </div>
                     <input className={styles.searchInput} type="text" placeholder='Buscar conteúdo' />
                 </form>

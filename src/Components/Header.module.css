@@ -5,7 +5,7 @@
     justify-content: space-between;
     padding: 1.25rem 0;
     height: 12.5rem;
-    width: 100%;
+    min-width: 100% !important;
     height: 18.5rem;
 }
 
@@ -13,4 +13,10 @@
     max-width: 100%;
     height: auto;
     display: block;
+}
+
+@media (max-width:768px) {
+    .header img:last-child {
+        display: none;
+    }
 }
