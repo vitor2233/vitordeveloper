@@ -20,10 +20,12 @@ export function Repositories() {
                     projectToAdd.push({
                         title: project.title,
                         body: project.body,
-                        updatedAt: project.updated_at
+                        updatedAt: project.updated_at,
+                        issueNumber: project.number
                     })
                 }
                 setProjects(projectToAdd);
+                console.log(data)
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
@@ -45,9 +47,11 @@ export function Repositories() {
                 {projects.map(project => {
                     return (
                         <ProjectCard
+                            key={project.issueNumber}
                             title={project.title}
                             body={project.body}
                             updatedAt={project.updatedAt}
+                            issueNumber={project.issueNumber}
                         />
                     );
                 })}

@@ -16,6 +16,7 @@
     -webkit-box-orient: vertical;
     overflow: hidden;
     text-overflow: ellipsis;
+    cursor: pointer;
 }
 
 .cardHeader {
@@ -32,12 +33,13 @@
     font-size: 1.25rem;
 }
 
-.cardHeader>small {
+.cardHeader>time {
     color: var(--blue-100);
 }
 
-.cardBody>p {
+.cardBody>pre {
     color: var(--gray-500);
     line-height: 1.65;
     -webkit-line-clamp: 3;
+    white-space: pre-wrap;
 }
