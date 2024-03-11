@@ -43,7 +43,7 @@ export function Profile() {
                     <a className={styles.githubRedirect} href={githubInformation.githubUrl} target='_blank'>GITHUB <ArrowSquareOut className={styles.githubRedirectIcon} size={20} /></a>
                 </div>
                 <div>
-                    <p className={styles.description}>Sou um desenvolvedor backend com mais de 3 anos de experiência em C# e Angular. Minhas habilidades também se estendem para Node.js e Flutter, o que me permite criar soluções robustas e eficientes tanto para web quanto para dispositivos móveis. Sou formado em Sistemas de Informação pela Faculdade UNA e possuo um curso técnico em TI pelo SENAI. Sou apaixonado por resolver desafios complexos e estou constantemente buscando aprender e me aprimorar.</p>
+                    <p className={styles.description}>Desenvolvedor backend com mais de 3 anos de experiência em C# e Angular. Minhas habilidades também se estendem para Node.js e Flutter, o que me permite criar soluções robustas e eficientes tanto para web quanto para dispositivos móveis. Sou formado em Sistemas de Informação pela Faculdade UNA e possuo um curso técnico em TI pelo SENAI. Sou apaixonado por resolver desafios complexos e estou constantemente buscando aprender e me aprimorar.</p>
                 </div>
                 <div className={styles.buttons}>
                     <a
