@@ -35,6 +35,7 @@
 
 .cardHeader>time {
     color: var(--blue-100);
+    margin: 0 1rem;
 }
 
 .cardBody>pre {
