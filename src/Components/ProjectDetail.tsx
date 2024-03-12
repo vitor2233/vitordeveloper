@@ -46,7 +46,7 @@ export function Repository() {
             <div className={styles.mainRepo}>
                 <div className={styles.repoButtons}>
                     <a onClick={handleBackClick}>VOLTAR</a>
-                    <a className={styles.githubRedirect} href='' target='_blank'>VER NO GITHUB <ArrowSquareOut className={styles.githubRedirectIcon} size={20} /></a>
+                    <a className={styles.githubRedirect} href='https://github.com/vitor2233?tab=repositories' target='_blank'>VER NO GITHUB <ArrowSquareOut className={styles.githubRedirectIcon} size={20} /></a>
                 </div>
                 <div className={styles.title}>
                     <h2 className={styles.projectTitle}>{project.title}</h2>

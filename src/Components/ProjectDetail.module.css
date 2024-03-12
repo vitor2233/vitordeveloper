@@ -65,3 +65,9 @@
 .iconCalendar {
     margin-right: 1rem;
 }
+
+@media (max-width:768px) {
+    .repoBody>pre {
+        padding: 2rem;
+    }
+}
