@@ -13,6 +13,7 @@ export function Repository() {
     }
     const { projectNumber } = useParams();
     const [publishedDateRelativeToNow, setPublishedDateRelativeToNow] = useState('');
+    const [githubUrl, setGithubUrl] = useState('');
     const [project, setProject] = useState({} as Project);
     useEffect(() => {
         fetch(`https://api.github.com/repos/vitor2233/blog-projects/issues/${projectNumber}`, {
@@ -24,9 +25,14 @@ export function Repository() {
         })
             .then((response) => response.json())
             .then((data) => {
+                const linkRegex = /\[repositório\]\((https?:\/\/\S+)\)/i;
+                const urlMatch = linkRegex.exec(data.body);
+                const url = urlMatch ? urlMatch[1] : '';
+                const bodyWithoutLink = data.body.replace(linkRegex, '');
+                setGithubUrl(url)
                 setProject({
                     title: data.title,
-                    body: data.body,
+                    body: bodyWithoutLink,
                     updatedAt: data.updated_at,
                     issueNumber: data.number
                 })
@@ -46,7 +52,7 @@ export function Repository() {
             <div className={styles.mainRepo}>
                 <div className={styles.repoButtons}>
                     <a onClick={handleBackClick}>VOLTAR</a>
-                    <a className={styles.githubRedirect} href='https://github.com/vitor2233?tab=repositories' target='_blank'>VER NO GITHUB <ArrowSquareOut className={styles.githubRedirectIcon} size={20} /></a>
+                    <a className={styles.githubRedirect} href={githubUrl} target='_blank'>VER NO GITHUB <ArrowSquareOut className={styles.githubRedirectIcon} size={20} /></a>
                 </div>
                 <div className={styles.title}>
                     <h2 className={styles.projectTitle}>{project.title}</h2>

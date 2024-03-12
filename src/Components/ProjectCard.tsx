@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import styles from './ProjectCard.module.css';
 import { format, formatDistanceToNow } from 'date-fns';
 import { ptBR } from 'date-fns/locale';
+import { useEffect, useState } from 'react';
 
 export interface Project {
     title: string;
@@ -11,6 +12,11 @@ export interface Project {
 }
 
 export function ProjectCard({ title, body, updatedAt, issueNumber }: Project) {
+    const [cleanBody, setCleanBody] = useState('');
+    useEffect(() => {
+        const linkRegex = /\[repositório\]\((https?:\/\/\S+)\)/i;
+        setCleanBody(body.replace(linkRegex, ''));
+    }, [body])
     const navigate = useNavigate();
     const publishedDateFormatted = format(updatedAt, "d 'de' LLLL 'às' HH:mm'h'",
         { locale: ptBR })
@@ -28,7 +34,7 @@ export function ProjectCard({ title, body, updatedAt, issueNumber }: Project) {
                 <time title={publishedDateFormatted}>{publishedDateRelativeToNow}</time>
             </div>
             <div className={styles.cardBody}>
-                <pre>{body}</pre>
+                <pre>{cleanBody}</pre>
             </div>
         </div>
     )
