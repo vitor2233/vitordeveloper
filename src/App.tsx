@@ -24,7 +24,7 @@ export function App() {
     <>
       <Header />
       <div className={styles.wrapper}>
-        <Router>
+        <Router >
           <Routes>
             <Route path="/" element={<MainPage />} />
             <Route path="/projetos/:projectNumber" element={<Repository />} />
