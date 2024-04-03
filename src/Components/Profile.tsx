@@ -1,4 +1,4 @@
-import { ArrowSquareOut, Buildings, Envelope, GitCommit } from 'phosphor-react'
+import { Buildings, Envelope, GitCommit } from 'phosphor-react'
 import styles from './Profile.module.css'
 import { useEffect, useState } from 'react';
 
