@@ -42,8 +42,8 @@ export function Repository() {
                 }));
 
             })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
+            .catch(() => {
+                handleBackClick();
             });
     }, []);
 
@@ -58,7 +58,7 @@ export function Repository() {
                     <h2 className={styles.projectTitle}>{project.title}</h2>
                 </div>
                 <div className={styles.buttons}>
-                    <a><CalendarBlank className={styles.iconCalendar} size={20} />
+                    <a className={styles.dateAdded}><CalendarBlank className={styles.iconCalendar} size={20} />
                         <time>{publishedDateRelativeToNow}</time>
                     </a>
                 </div>

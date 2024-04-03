@@ -10,6 +10,7 @@
     border: 0;
     border-radius: 8px;
     max-height: 13.765rem;
+    min-height: 13.765rem;
     display: block;
     display: -webkit-box;
     -webkit-line-clamp: 7;
@@ -41,6 +42,16 @@
 .cardBody>pre {
     color: var(--gray-500);
     line-height: 1.65;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 6;
     white-space: pre-wrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+@media (max-width:768px) {
+    .cardBody>pre {
+        -webkit-line-clamp: 5;
+    }
 }

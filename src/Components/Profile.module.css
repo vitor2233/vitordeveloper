@@ -26,7 +26,11 @@
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
-    padding: 2rem 1rem;
+    padding: 1rem 2rem 1rem 2rem;
+}
+
+.companyRef:hover {
+    cursor: default;
 }
 
 .buttons a {
@@ -88,5 +92,13 @@
 
     .profileInformation div:first-child {
         padding: 0 1rem 1rem 1rem;
+    }
+
+    .companyRef {
+        text-align: center;
+    }
+
+    .buttons {
+        padding: 2rem 0 !important;
     }
 }

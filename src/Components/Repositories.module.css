@@ -34,3 +34,10 @@
         grid-template-columns: 1fr;
     }
 }
+
+.skeletons {
+    display: flex;
+    justify-content: space-between;
+    min-width: 90vw;
+    padding: 1rem;
+}
