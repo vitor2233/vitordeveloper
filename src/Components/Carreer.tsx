@@ -1,10 +1,11 @@
 import { Col, Row, Timeline } from 'antd';
 import styles from './Carreer.module.css'
 import { useState } from 'react';
-import { FaAngular, FaAws, FaBluetooth, FaCss3Alt, FaDocker, FaHtml5, FaJsSquare, FaNodeJs, FaReact } from 'react-icons/fa';
+import { FaAws, FaBluetooth, FaCss3Alt, FaDocker, FaHtml5, FaJsSquare, FaNodeJs } from 'react-icons/fa';
 import { SiAngular, SiAuth0, SiDotnet, SiGithubactions, SiKubernetes, SiTypescript } from "react-icons/si";
 import { TbBrandCSharp } from "react-icons/tb";
 import { FaFlutter } from 'react-icons/fa6';
+import { motion, AnimatePresence } from "framer-motion";
 interface CardProps {
   icon: React.ReactElement;
   title: string;
@@ -196,7 +197,7 @@ const cardsGroup3 = [
 ];
 
 export function Carreer() {
-  const [cards, setCards] = useState(cardsGroup0);
+  const [cards, setCards] = useState(cardsGroup3);
 
   // Função para alterar o estado com base no clique
   const handleItemClick = (groupId: number) => {
@@ -214,7 +215,7 @@ export function Carreer() {
         setCards(cardsGroup3);
         break;
       default:
-        setCards(cardsGroup0); // Definir o grupo padrão
+        setCards(cardsGroup3);
         break;
     }
   };
@@ -280,24 +281,36 @@ export function Carreer() {
         </Col>
         <Col xs={24} md={12}>
           <Row gutter={[16, 16]}>
-            {cards.map((card) => (
-              <Col
-                key={card.id}
-                xs={24}
-                sm={12}
-                md={12}
-                lg={12}
-                xl={12}
-                style={{ display: "flex", justifyContent: "center" }}
-              >
-                <Card
+            <AnimatePresence>
+              {cards.map((card) => (
+                <Col
                   key={card.id}
-                  icon={card.icon}
-                  title={card.title}
-                  description={card.description}
-                />
-              </Col>
-            ))}
+                  xs={24}
+                  sm={12}
+                  md={12}
+                  lg={12}
+                  xl={12}
+                  style={{ display: "flex", justifyContent: "center" }}
+                >
+                  <motion.div
+                    key={card.id}
+                    initial={{ opacity: 0, scale: 0.2 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    exit={{ opacity: 0, scale: 0.2 }}
+                    transition={{ duration: 0.3 }}
+                    style={{ width: "100%" }}
+                  >
+                    <Card
+                      key={card.id}
+                      icon={card.icon}
+                      title={card.title}
+                      description={card.description}
+                    />
+                  </motion.div>
+                </Col>
+
+              ))}
+            </AnimatePresence>
           </Row>
         </Col>
       </Row>
