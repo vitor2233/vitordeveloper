@@ -95,7 +95,6 @@ export function Repositories() {
         <div className={styles.repositories}>
             <div className={styles.searchRepository}>
                 <div className={styles.searchText}>
-                    <p>Publicações</p>
                     <small>{quantityOfProjects} publicações</small>
                 </div>
                 <input

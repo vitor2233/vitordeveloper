@@ -1,0 +1,44 @@
+.collapse {
+    width: 100%;
+}
+
+.collapse :global(.ant-collapse-header) {
+    color: #fff !important;
+}
+
+.collapse :global(.ant-collapse-arrow svg) {
+    fill: #fff !important;
+}
+
+.collapseLabel {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.collapseYear {
+    font-style: italic;
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.collapseBody {
+    color: #fff;
+    padding: 16px;
+}
+
+:global(.ant-collapse-content-box) {
+    background-color: #112131;
+}
+
+@media (max-width: 576px) {
+    .logoImage {
+        margin-top: 4vh;
+        max-width: 60% !important;
+    }
+}
+
+.logoImage {
+    max-width: 80%;
+}
