@@ -9,7 +9,7 @@ import { ptBR } from 'date-fns/locale';
 export function Repository() {
     const navigate = useNavigate();
     function handleBackClick() {
-        navigate('/vitordeveloper');
+        navigate('/');
     }
     const { projectNumber } = useParams();
     const [publishedDateRelativeToNow, setPublishedDateRelativeToNow] = useState('');
