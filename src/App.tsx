@@ -66,7 +66,7 @@ export function App() {
       <div className={styles.wrapper}>
         <Router >
           <Routes>
-            <Route path="/" element={<MainPage />} />
+            <Route path="/vitordeveloper" element={<MainPage />} />
             <Route path="/projetos/:projectNumber" element={<Repository />} />
           </Routes>
         </Router>
