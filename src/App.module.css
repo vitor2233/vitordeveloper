@@ -1,11 +1,20 @@
-.wrapper {
-    max-width: 70rem;
-    margin: 2rem auto;
-    padding: 0 1rem;
+.page {
+    background: var(--bg-black);
+    min-height: 100vh;
+}
 
-    display: grid;
-    grid-template-columns: 1fr;
-    align-items: self-start;
+.wrapper {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+.footer {
+    padding: 4rem 0;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    color: var(--text-muted);
+    font-size: 0.875rem;
 }
 
 @media (max-width:768px) {
@@ -14,6 +23,6 @@
     }
 
     .wrapper {
-        grid-template-columns: 1fr;
+        padding: 0 1.5rem;
     }
 }

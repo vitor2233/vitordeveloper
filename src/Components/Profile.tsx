@@ -1,60 +1,71 @@
-import { Buildings, Envelope, GitCommit } from 'phosphor-react'
-import styles from './Profile.module.css'
-import { useEffect, useState } from 'react';
-import logo from '../assets/cloud-practitioner.png';
-
-interface GithubInformation {
-    profileUrl: string;
-    company: string;
-    githubUrl: string;
-    login: string;
-    name: string;
-}
+import { LinkedinLogo, ArrowRight } from 'phosphor-react';
+import styles from './Profile.module.css';
+import { motion } from 'framer-motion';
+import badge from '../assets/cloud-practitioner.png';
 
 export function Profile() {
-    const [githubInformation, setGithubInformation] = useState({} as GithubInformation);
-    const githubUsername = 'Vitor2233'
-    useEffect(() => {
-        fetch(`https://api.github.com/users/${githubUsername.toLowerCase()}`, {
-            method: "GET",
-            headers: {
-                'X-GitHub-Api-Version': '2022-11-28'
-            }
-        })
-            .then((response) => response.json())
-            .then((data) => {
-                setGithubInformation({
-                    company: data.company,
-                    githubUrl: data.html_url,
-                    login: data.login,
-                    name: data.name,
-                    profileUrl: data.avatar_url
-                })
-            })
-    }, []);
-
     return (
-        <div className={styles.profile}>
-            <aside className={styles.profileImage}>
-                <img className={styles.avatar} src={githubInformation.profileUrl} />
-                <img className={styles.cloudBadge} src={logo} alt="AWS Cloud Practitioner Badge" onClick={() => window.open('https://www.credly.com/badges/7f5f1c84-258a-4355-89af-7b62839769e7', '_blank')} />
-            </aside>
-            <main className={styles.profileInformation}>
-                <div>
-                    <h2 className={styles.firstName}>{githubInformation.name}</h2>
-                </div>
-                <div>
-                    <p className={styles.description}>Desenvolvedor backend com mais de 4 anos de experiência em C# e Angular. Minhas habilidades também se estendem para Node.js e Flutter, o que me permite criar soluções robustas e eficientes tanto para web quanto para dispositivos móveis. Sou formado em Sistemas de Informação pela Faculdade UNA, possuo curso técnico em TI pelo SENAI e também a certificação AWS Cloud Practitioner. Sou apaixonado por resolver desafios complexos e estou constantemente buscando aprender e me aprimorar.</p>
-                </div>
-                <div className={styles.buttons}>
-                    <a
-                        href={githubInformation.githubUrl} target='_blank'>
-                        <GitCommit className={styles.iconProfile} size={20} />{githubUsername}
-                    </a>
-                    <a className={styles.companyRef}><Buildings className={styles.iconProfile} size={20} />{githubInformation.company}</a>
-                    <a href='mailto:vitorguilherme2233@gmail.com'><Envelope className={styles.iconProfile} size={20} />E-mail</a>
-                </div>
-            </main>
-        </div>
-    )
+        <section className={styles.hero}>
+            <div className={styles.content}>
+                <motion.div 
+                    initial={{ opacity: 0, x: -30 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
+                    className={styles.info}
+                >
+                    <span className={styles.badge}>Software Architect</span>
+                    <h1 className={styles.name}>Vitor Guilherme</h1>
+                    <p className={styles.tagline}>
+                        Especialista em Backend & Sistemas Distribuídos
+                    </p>
+                    <p className={styles.description}>
+                        Transformando requisitos complexos em arquiteturas resilientes e de alta performance. 
+                        Com mais de 4 anos de experiência técnica sólida em .NET, NestJS e ecossistemas Cloud.
+                    </p>
+                    <div className={styles.actions}>
+                        <a href="https://www.linkedin.com/in/vitor-guilherme2233/" target="_blank" className={styles.primaryButton}>
+                            Entrar em contato <ArrowRight size={20} />
+                        </a>
+                        <a href="https://www.linkedin.com/in/vitor-guilherme2233/" target="_blank" className={styles.secondaryButton}>
+                            LinkedIn <LinkedinLogo size={20} />
+                        </a>
+                    </div>
+                </motion.div>
+
+                <motion.div 
+                    initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
+                    animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                    transition={{ type: "spring", stiffness: 50, damping: 15, delay: 0.4 }}
+                    className={styles.visual}
+                >
+                    <div className={styles.imageWrapper}>
+                        <img 
+                            src="https://github.com/Vitor2233.png" 
+                            alt="Vitor Guilherme" 
+                            className={styles.avatar} 
+                        />
+                        <motion.div 
+                            className={styles.certifiedSeal}
+                            whileHover={{ rotate: 10 }}
+                        >
+                            <img 
+                                src={badge} 
+                                alt="AWS Certified" 
+                                onClick={() => window.open('https://www.credly.com/badges/7f5f1c84-258a-4355-89af-7b62839769e7', '_blank')}
+                            />
+                        </motion.div>
+                    </div>
+                </motion.div>
+            </div>
+            
+            <motion.div 
+                className={styles.scrollIndication}
+                animate={{ y: [0, 10, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+            >
+                <p>Scroll to explore</p>
+                <ArrowRight size={16} />
+            </motion.div>
+        </section>
+    );
 }

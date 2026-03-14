@@ -1,12 +1,53 @@
 .header {
-    background: linear-gradient(var(--blue-900), var(--blue-600));
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000;
     display: flex;
-    align-items: flex-start;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 0 2rem;
+    display: flex;
     justify-content: space-between;
-    padding: 1.25rem 0;
-    height: 12.5rem;
-    min-width: 100% !important;
-    height: 18.5rem;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Outfit', sans-serif;
+    font-weight: 800;
+    font-size: 1.5rem;
+    letter-spacing: -0.05em;
+}
+
+.logo span {
+    color: var(--text-muted);
+    font-weight: 400;
+}
+
+.contactLink {
+    color: var(--text-primary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    padding: 0.5rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.contactLink:hover {
+    background: white;
+    color: black;
 }
 
 .header img {

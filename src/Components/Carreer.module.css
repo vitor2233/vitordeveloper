@@ -1,51 +1,120 @@
-.timelineItem {
-    padding: 5px;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
+.section {
+    padding: 6rem 0;
+    border-top: 1px solid var(--border);
 }
 
-.timelineItem:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+.header {
+    margin-bottom: 4rem;
 }
 
-.timelineTitle {
-    color: #fff !important;
+.sectionAccent {
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-bottom: 1rem;
+    font-weight: 600;
 }
 
-.timelineSubtitle {
-    color: #bbb;
-    font-size: 0.9em;
-    margin-top: 8px;
-    line-height: 1.5;
+.sectionTitle {
+    font-size: 2.5rem;
+    color: var(--text-primary);
 }
 
-.card {
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-    padding: 16px;
-    margin-bottom: 16px;
-    width: 90%;
-    max-width: 350px;
-}
-
-.cardContent {
+.timeline {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    gap: 4rem;
+    position: relative;
+    padding-left: 2rem;
 }
 
-.cardIcon {
-    margin-right: 16px;
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 1px;
+    background: var(--border);
 }
 
-.cardTitle {
-    margin: 0;
-    font-size: 14px;
+.item {
+    position: relative;
 }
 
-.cardDescription {
-    margin: 0;
-    font-size: 12px;
-    color: #888;
+.dot {
+    position: absolute;
+    left: -2rem;
+    top: 0.75rem;
+    width: 9px;
+    height: 9px;
+    background: var(--text-primary);
+    border-radius: 50%;
+    transform: translateX(-50%);
+    box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+}
+
+.itemHeader {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.phaseTitle {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 700;
+}
+
+.period {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    padding: 0.25rem 0.75rem;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+}
+
+.description {
+    color: var(--text-muted);
+    line-height: 1.7;
+    max-width: 800px;
+    font-size: 1.05rem;
+}
+
+.techWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+}
+
+.techBadge {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.6rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    border-radius: 4px;
+    font-weight: 500;
+}
+
+@media (max-width: 768px) {
+    .itemHeader {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    .phaseTitle {
+        font-size: 1.25rem;
+    }
 }
